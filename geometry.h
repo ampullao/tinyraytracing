@@ -22,7 +22,7 @@ public:
         return data_[i];
     }
 
-private:
+public:
     T data_[DIM];
 };
 
@@ -38,7 +38,7 @@ public:
     // template <class U> vec<2, T>(const vec<2, U> &v);
     T& operator[](const size_t i) { assert(i < 2); return i<=0 ? x : y; }
     const T& operator[](const size_t i) const { assert(i < 2); return i<=0 ? x : y; }
-private:
+public:
     T x, y;
 };
 
@@ -50,7 +50,7 @@ public:
     const T& operator[](const size_t i) const { assert(i < 3); return i<=0 ? x : (1==i ? y : z); }
     float norm() { return std::sqrt(x*x+y*y+z*z); }
     vec<3, T>& normalize(T l=1) { *this = (*this)*(l/norm()); return *this; }
-private:
+public:
     T x, y, z;
 };
 
@@ -60,7 +60,7 @@ public:
     vec(T X, T Y, T Z, T W) : x(X), y(Y), z(Z), w(W) {}
     T& operator[](const size_t i) { assert(i < 4); return i<=0 ? x : (1==i ? y : (2==i ? z : w)); }
     const T& operator[](const size_t i) const { assert(i < 4); return i<=0 ? x : (1==i ? y : (2==i ? z : w)); }
-private:
+public:
     T x, y, z, w;
 };
 
